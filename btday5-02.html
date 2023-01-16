@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <form action="">
+        <label for="">
+            <p>user 1</p>
+            <input type="text" id="a1" value="">
+            <button onclick="sub1()">submit</button>
+            <button id="a2" onclick="remove_a()"> remove</button>
+        </label>
+        <label for="">
+            <p>user 2</p>
+            <input type="text" id="b1" value="">
+            <button onclick="sub2()">submit</button>
+            <button id="b2" onclick="remove_b()"> remove</button>
+        </label>
+    </form>
+    
+    <button onclick="del()" >delete</button>
+    <p>user 1</p>
+    <h2 id="a3"></h2>
+    <p>user 2</p>
+    <h2 id="b3"></h2>
+
+    <button onclick="play()">play</button>
+    <script>
+
+        const a = document.getElementById("a1");
+        const b = document.getElementById("b1");
+        const h2a = document.getElementById("a3");
+        const h2b = document.getElementById("b3");
+        h2a.innerHTML = localStorage.getItem("value1");
+        h2b.innerHTML = localStorage.getItem("value2");
+
+        a.addEventListener("keyup",displaya);
+        function displaya(){
+            h2a.innerHTML=a.value
+        }
+        
+        b.addEventListener("keyup",displayb);
+        function displayb(){
+            h2b.innerHTML=b.value
+        }
+        
+        function sub1() {
+            localStorage.setItem('value1',a.value);
+        
+        }
+        function sub2() {
+            localStorage.setItem('value2',b.value);
+        }
+        function remove_a() {
+            localStorage.removeItem("value1")
+        }
+        function remove_b() {
+            localStorage.removeItem("value2")
+        }
+        function del() {
+            localStorage.clear()
+        }
+
+        function play() {
+            setTimeout("document.write('Đoàn quân Việt Nam đi <br>')", 1000);
+            setTimeout("document.write('Chung lòng cứu quốc, <br>')", 2000);
+            setTimeout("document.write('Bước chân dồn vang trên đường gập ghềnh xa,<br>')", 3000);
+            setTimeout("document.write('Cờ in máu chiến thắng mang hồn nước,<br>')", 4000);
+            setTimeout("document.write('Súng ngoài xa chen khúc quân hành ca,<br>')", 5000);
+            
+        }
+    </script>
+
+    
+</body>
+</html>
